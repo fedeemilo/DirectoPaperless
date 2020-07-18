@@ -1,3 +1,5 @@
+
+
 const path = window.location.pathname;
 const paginaActual = path.split('/').pop();
 const miSesion = window.sessionStorage;
@@ -7,13 +9,23 @@ console.log(paginaActual);
 
 // VALIDACIÓN CONTRASEÑA
 const validarContraseña = (input) => {
-	let regex = /^[A-Za-z]{4}\d{4}$/;
+	let regex = /[A-Za-z0-9]+/;
+	let letras = 0;
+	let numeros = 0;
 
-	if (input.value.match(regex)) {
-		return true;
+	console.log(input.value)
+
+	for (let i = 0; i < input.value.length; i++) {
+		console.log(input.value[i]);
+
+		if (isNaN(input.value[i])) {
+			letras += 1;
+		} else if (!isNaN(input.value[i])) {
+			numeros += 1;
+		}
 	}
 
-	return false;
+	return letras == 4 && numeros == 4;
 };
 
 // SACAR FOTO
@@ -444,24 +456,31 @@ if (paginaActual == 'validar-identidad.html') {
 			for (let i = 0; i < personaDNI.length; i++) {
 				let dniPersona = personaDNI[i].textContent.split(' ')[1];
 				let dniSinPuntos = dniPersona.replace(/\./g, '');
+				let contenido = `
+				<li class="list-group-item persona">
+						<span class="persona-nombre"
+							>${personaNombre[i].textContent}</span
+						>
+						<br />
+						<span class="persona-dni">${personaDNI[i].textContent}</span>
+						<a href="#" class="persona-tick">
+							<svg class="mt-2 ml-4">
+								<use xlink:href="#tick"></use>
+							</svg>
+						</a>
+					</li>
+			
+				
+				`;
 
 				if (dniSinPuntos.indexOf(e.target.value) !== -1) {
-					listaResultados.innerHTML += `
-				
-					<li class="list-group-item persona">
-							<span class="persona-nombre"
-								>${personaNombre[i].textContent}</span
-							>
-							<br />
-							<span class="persona-dni">${personaDNI[i].textContent}</span>
-							<a href="#" class="persona-tick">
-								<svg class="mt-2 ml-4">
-									<use xlink:href="#tick"></use>
-								</svg>
-							</a>
-						</li>
-					
-				`;
+					listaResultados.insertAdjacentHTML('afterbegin', contenido);
+					console.log(listaResultados.children[0].childNodes[7]);
+					let items = listaResultados.children[0].childNodes[7];
+
+					items.onclick = items.addEventListener('click', () => {
+						items.childNodes[1].classList.toggle('tick-active');
+					});
 				}
 			}
 		}
@@ -470,7 +489,7 @@ if (paginaActual == 'validar-identidad.html') {
 		if (buscador.value == '') {
 			listaResultados.innerHTML = '';
 			listaResultados.insertAdjacentHTML('afterbegin', resultadosDefault);
-			
+
 			for (let i = 0; i < personaNombre.length; i++) {
 				let items;
 				if (i === 0) {
