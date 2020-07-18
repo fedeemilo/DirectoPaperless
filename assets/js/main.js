@@ -1,18 +1,9 @@
 const path = window.location.pathname;
 const paginaActual = path.split('/').pop();
-console.log(paginaActual);
 const miSesion = window.sessionStorage;
+console.log(paginaActual);
 
 /* FUNCIONES */
-
-// VALIDACIÓN USUARIO
-const validarUsuario = (entrada, carac) => {
-	let valido = carac.test(entrada.value);
-	if (!valido) {
-		return false;
-	}
-	return valido;
-};
 
 // VALIDACIÓN CONTRASEÑA
 const validarContraseña = (input) => {
@@ -76,6 +67,17 @@ const verificarFoto = (boton, input, contenedor, tipo) => {
 	});
 };
 
+// TOGGLE TICK VERDE
+
+const toggleTick = (botonTick) => {
+	for (let i = 0; i < botonTick.length; i++) {
+		botonTick[i].addEventListener('click', () => {
+			console.log(botonTick[i].childNodes[1]);
+			botonTick[i].childNodes[1].classList.toggle('tick-active');
+		});
+	}
+};
+
 /* ============================================================================= */
 
 /* LOGIN-COMERCIO - inicio */
@@ -101,11 +103,6 @@ if (paginaActual == 'login-comercio.html') {
 			iconoUsuario.classList.add('no-valido-icon');
 			errorUsuario.textContent = 'Debes ingresar un nombre de usuario';
 			errorUsuario.style.display = 'block';
-		} else if (inputUsuario.value.length < 8) {
-			e.preventDefault();
-			inputUsuario.classList.add('no-valido-input');
-			iconoUsuario.classList.add('no-valido-icon');
-			errorUsuario.style.display = 'block';
 		}
 
 		// Input contraseña vacío
@@ -120,6 +117,15 @@ if (paginaActual == 'login-comercio.html') {
 			inputContraseña.classList.add('no-valido-input');
 			iconoContraseña.classList.add('no-valido-icon');
 			errorContraseña.style.display = 'block';
+		}
+
+		if (!validarContraseña(inputContraseña)) {
+			e.preventDefault();
+			inputContraseña.classList.add('no-valido-input');
+			iconoContraseña.classList.add('no-valido-icon');
+			errorContraseña.style.display = 'block';
+			errorContraseña.textContent =
+				'La contraseña debe contener 8 caracteres alfanuméricos';
 		}
 	});
 
@@ -143,13 +149,6 @@ if (paginaActual == 'login-comercio.html') {
 			inputContraseña.classList.remove('no-valido-input');
 			iconoContraseña.classList.remove('no-valido-icon');
 			errorContraseña.style.display = 'none';
-			if (!validarContraseña(inputContraseña)) {
-				inputContraseña.classList.add('no-valido-input');
-				iconoContraseña.classList.add('no-valido-icon');
-				errorContraseña.style.display = 'block';
-				errorContraseña.textContent =
-					'La contraseña debe tener 4 letras seguida de 4 números';
-			}
 		} else {
 			inputContraseña.classList.add('no-valido-input');
 			iconoContraseña.classList.add('no-valido-icon');
@@ -392,22 +391,17 @@ const listaResultados = document.querySelector(
 	'.main-validar-identidad__resultados--lista'
 );
 const mensajeErrorOverlay = document.querySelector('.container-overlay');
+const mensajeError = document.querySelector('.error-sin-resultado');
 
 if (paginaActual == 'validar-identidad.html') {
 	const resultadosDefault = listaResultados.innerHTML;
 	// Al clickear el tick el mismo hace toggle de color verde
-	for (let i = 0; i < botonTick.length; i++) {
-		botonTick[i].addEventListener('click', () => {
-			console.log(botonTick[i].childNodes[1]);
-			botonTick[i].childNodes[1].classList.toggle('tick-active');
-		});
-	}
+	toggleTick(botonTick);
 
 	// Al hacer una busqueda se filtran los resultados
 	buscador.addEventListener('input', (e) => {
 		listaResultados.innerHTML = '';
-
-		console.log(isNaN(e.target.value));
+		toggleTick(botonTick);
 
 		// Si busco por nombre
 		if (isNaN(e.target.value)) {
@@ -415,26 +409,31 @@ if (paginaActual == 'validar-identidad.html') {
 			for (let i = 0; i < personaNombre.length; i++) {
 				let persona = personaNombre[i].textContent.toLowerCase();
 				let personaBuscada = e.target.value.toLowerCase();
+				let contenido = `
+				<li class="list-group-item persona">
+						<span class="persona-nombre"
+							>${personaNombre[i].textContent}</span
+						>
+						<br />
+						<span class="persona-dni">${personaDNI[i].textContent}</span>
+						<a href="#" class="persona-tick">
+							<svg class="mt-2 ml-4">
+								<use xlink:href="#tick"></use>
+							</svg>
+						</a>
+					</li>
+			
+				
+				`;
 
 				if (persona.split(',')[0].indexOf(personaBuscada) !== -1) {
-					listaResultados.innerHTML += `
-				
-			
-					<li class="list-group-item persona">
-							<span class="persona-nombre"
-								>${personaNombre[i].textContent}</span
-							>
-							<br />
-							<span class="persona-dni">${personaDNI[i].textContent}</span>
-							<a href="#" class="persona-tick">
-								<svg class="mt-2 ml-4">
-									<use xlink:href="#tick"></use>
-								</svg>
-							</a>
-						</li>
-				
-					
-				`;
+					listaResultados.insertAdjacentHTML('afterbegin', contenido);
+					console.log(listaResultados.children[0].childNodes[7]);
+					let items = listaResultados.children[0].childNodes[7];
+
+					items.onclick = items.addEventListener('click', () => {
+						items.childNodes[1].classList.toggle('tick-active');
+					});
 				}
 			}
 		}
@@ -469,25 +468,45 @@ if (paginaActual == 'validar-identidad.html') {
 
 		// Si no hay nada ingresado en el input la lista vuelve a su estado default
 		if (buscador.value == '') {
-			listaResultados.innerHTML = resultadosDefault;
+			listaResultados.innerHTML = '';
+			listaResultados.insertAdjacentHTML('afterbegin', resultadosDefault);
+			
+			for (let i = 0; i < personaNombre.length; i++) {
+				let items;
+				if (i === 0) {
+					items = listaResultados.children[i].childNodes[7];
+				} else {
+					items = listaResultados.children[i].childNodes[7].previousSibling;
+				}
+				console.log(items);
+
+				items.onclick = items.addEventListener('click', () => {
+					items.childNodes[1].classList.toggle('tick-active');
+				});
+			}
+			mensajeError.style.display = '';
 		}
 
 		// Si no se encuentra lo que el usuario está buscando
 		if (listaResultados.innerHTML === '') {
-			mensajeErrorOverlay.style.display = 'block';
-			// Manejo del popup de error
-			const cerrarPopup = document.querySelector('.cerrar-popup');
+			let separadores = document.querySelectorAll('hr');
+			for (let i = 0; i < separadores.length; i++) {
+				separadores[i].style.display = 'none';
+			}
+			listaResultados.innerHTML = '';
+			mensajeError.style.cssText = `
 
-			mensajeErrorOverlay.addEventListener('click', () => {
-				mensajeErrorOverlay.style.display = 'none';
-				listaResultados.innerHTML = resultadosDefault;
-				buscador.value = '';
-			});
-
-			cerrarPopup.addEventListener('click', (e) => {
-				e.preventDefault();
-				mensajeErrorOverlay.style.display = 'none';
-			});
+			position: relative;
+			left: 1.6rem;
+			bottom: .5rem;
+			font-size: .85rem;
+			font-family: 'Roboto', sans-serif;
+			color: #e41f26;
+			display: block !important;
+				
+			`;
+		} else {
+			mensajeError.style.display = 'none';
 		}
 	});
 }
@@ -502,14 +521,12 @@ if (paginaActual == 'validar-identidad.html') {
 const olvideClave = document.getElementById('olvido-contraseña');
 const cerrarPopup = document.querySelector('.cerrar-popup');
 const containerOverlayError = document.querySelector('.container-overlay');
-const bodyError = document.querySelector('.body-error')
-
+const bodyError = document.querySelector('.body-error');
 
 if (
 	paginaActual == 'error-lorem.html' ||
 	paginaActual == 'error-conexion.html'
-	) {
-
+) {
 	olvideClave.addEventListener('click', (e) => {
 		e.preventDefault();
 		containerOverlayError.style.display = 'block';

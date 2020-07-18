@@ -24,7 +24,6 @@
 			xmlns:xlink="http://www.w3.org/1999/xlink"
 		>
 			<defs>
-				<!-- LOGO DIRECTO  - inicio -->
 				<symbol id="logo-directo" width="297" height="41" viewBox="0 0 204 41">
 					<title>logo</title>
 					<path
@@ -60,104 +59,43 @@
 						fill="#E41F26"
 					/>
 				</symbol>
-				<!-- LOGO DIRECTO  - fin -->
-
-				<!-- ====================================================================== -->
-
-				<!-- ÍCONO FACEBOOK - inicio -->
-
-				<symbol
-					id="icono-facebook"
-					width="16"
-					height="16"
-					viewBox="0 0 16 16"
-					fill="none"
-				>
-					<path
-						d="M16 0.882143V15.1143C16 15.6036 15.6036 15.9964 15.1179 15.9964H11.0393V9.80357H13.1179L13.4286 7.38929H11.0357V5.84643C11.0357 5.14643 11.2286 4.67143 12.2321 4.67143H13.5107V2.51071C13.2893 2.48214 12.5321 2.41429 11.6464 2.41429C9.80357 2.41429 8.53929 3.53929 8.53929 5.60714V7.38929H6.45357V9.80357H8.53929V16H0.882143C0.396429 16 0 15.6036 0 15.1179V0.882143C0 0.396429 0.396429 0 0.882143 0H15.1143C15.6036 0 16 0.396429 16 0.882143Z"
-						fill="#00448A"
-					/>
-				</symbol>
-
-				<!-- ÍCONO FACEBOOK - fin -->
-
-				<!-- ====================================================================== -->
-
-				<!-- ÍCONO GOOGLE  - inicio  -->
-
-				<symbol
-					id="icono-google"
-					width="16"
-					height="16"
-					viewBox="0 0 16 16"
-					fill="none"
-				>
-					<path
-						d="M16 8.1871C16 12.7516 12.823 16 8.13115 16C3.63279 16 0 12.4258 0 8C0 3.57419 3.63279 0 8.13115 0C10.3213 0 12.1639 0.790323 13.5836 2.09355L11.3705 4.1871C8.47541 1.43871 3.0918 3.50323 3.0918 8C3.0918 10.7903 5.35738 13.0516 8.13115 13.0516C11.3508 13.0516 12.5574 10.7806 12.7475 9.60323H8.13115V6.85161H15.8721C15.9475 7.26129 16 7.65484 16 8.1871Z"
-						fill="#DD4B39"
-					/>
-				</symbol>
-
-				<!-- ÍCONO GOOGLE  - fin  -->
+				
 			</defs>
 		</svg>
 		<!-- iconos svg - fin -->
 
-		<div class="wrapper-desktop">
+        <div class="wrapper-desktop">
 			<!-- header directo - inicio -->
-			<header class="header">
-				<div class="header__directo">
-					<svg class="header__directo--logo">
-						<use xlink:href="#logo-directo"></use>
-					</svg>
-				</div>
-			</header>
-			<!-- header directo - fin -->
-	
-			<main class="main-finalizando-comercio">
-				<!-- Saludo bienvenida -->
-				<div class="bienvenida">
-					<h4 class="bienvenida__nombre">Fragoso De Aruda, Adalberto Carlos</h4>
-					<h4 class="bienvenida__documento">DNI <span>24.235.647</span></h4>
-				</div>
-	
-				<!-- Mensaje -->
-				<div class="main-finalizando-comercio__mensaje text-center mt-5">
-					<h2>
-						Avisale al vendedor del <br />
-						comercio que <br />
-						terminaste de validarte
-					</h2>
-				</div>
-			</main>
-	
-			<footer class="footer-crear-cuenta">
-				<!-- Título Footer -->
-				<div class="footer-crear-cuenta__titulo">
-					<div style="position: relative ;top: 1.5rem;">
-						<p>Create una cuenta en Directo</p>
-						<p>¡Accedé a un mundo de beneficios!</p>
-					</div>
-	
-					<!-- Contenedor de botones -->
-					<div class="footer-crear-cuenta__botones">
-						<button
-							class="botones__blanco footer-crear-cuenta__botones--facebook"
-						>
-							Facebook
-						</button>
-						<svg class="icon-facebook">
-							<use xlink:href="#icono-facebook"></use>
-						</svg>
-						<button class="botones__blanco footer-crear-cuenta__botones--google">
-							Google
-						</button>
-						<svg class="icon-google">
-							<use xlink:href="#icono-google"></use>
-						</svg>
-					</div>
-				</div>
-			</footer>
+					<header class="header">
+						<div class="header__directo">
+							<svg class="header__directo--logo">
+			                    <use xlink:href="#logo-directo"></use>
+			                </svg>
+						</div>
+			        </header>
+			        <!-- header directo - fin -->
+			        
+			        <main>
+			            <!-- Saludo bienvenida -->
+			            <div class="bienvenida">
+			                <h3 class="bienvenida__titulo">Cliente</h3>
+			                <h4 class="bienvenida__nombre">Fragoso De Aruda, Adalberto Carlos</h4>
+			                <h4 class="bienvenida__documento">DNI <span>24.235.647</span></h4>
+			            </div>
+			
+			            <!-- Mensaje al cliente -->
+			            <div class="mensaje-cliente">
+			                <h3>Proceso de validación <br> finalizado</h3>
+			
+			            </div>
+			
+			     
+			
+			            <!-- Contenedor de botones -->
+			            <div class="continuar">
+			                <button class="botones__verde final-cliente">Home</button>
+			            </div>
+			        </main>
 		</div>
 
 		<!-- SCRIPTS -->

@@ -124,7 +124,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .botones input, .botones button {
@@ -145,7 +145,7 @@
   color: #FFFFFF;
   font-weight: bold;
   height: 48px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   outline: none !important;
   text-transform: uppercase;
 }
@@ -163,7 +163,7 @@
   color: #FFFFFF;
   font-weight: bold;
   height: 48px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   outline: none !important;
   text-transform: uppercase;
 }
@@ -180,7 +180,7 @@
   color: #FFFFFF;
   font-weight: bold;
   height: 48px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   outline: none !important;
   text-transform: uppercase;
 }
@@ -395,6 +395,10 @@
   font-weight: bold;
 }
 
+.container-overlay.error {
+  display: block;
+}
+
 .formulario-login {
   margin-top: 3.3rem;
 }
@@ -412,6 +416,15 @@
 }
 
 .formulario-login__contenedor--input {
+  border: 1px solid #00458a;
+  border-left: none;
+  outline: 0px !important;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.formulario-login__contenedor--input:focus {
   border: 1px solid #00458a;
   border-left: none;
 }
@@ -575,13 +588,6 @@
   font-size: 5vw;
 }
 
-.main-frente__reglas,
-.main-dorso__reglas,
-.main-selfie__reglas,
-.main-gestual__reglas {
-  margin-left: 1.9rem;
-}
-
 .main-frente__reglas--requisitos,
 .main-dorso__reglas--requisitos,
 .main-selfie__reglas--requisitos,
@@ -633,6 +639,19 @@
 .main-gestual__reglas .selfie-cara span {
   margin-right: -0.6rem;
   margin-left: -0.8rem;
+}
+
+.main-frente__reglas.frente, .main-frente__reglas.dorso, .main-frente__reglas.gestual,
+.main-dorso__reglas.frente,
+.main-dorso__reglas.dorso,
+.main-dorso__reglas.gestual,
+.main-selfie__reglas.frente,
+.main-selfie__reglas.dorso,
+.main-selfie__reglas.gestual,
+.main-gestual__reglas.frente,
+.main-gestual__reglas.dorso,
+.main-gestual__reglas.gestual {
+  margin-left: 1.8rem;
 }
 
 .main-frente__botones,
@@ -764,7 +783,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 14.58rem;
+  height: 12.98rem;
   border-radius: 19px 19px 0 0;
 }
 

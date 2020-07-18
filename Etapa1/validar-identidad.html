@@ -327,24 +327,7 @@
 			</header>
 			<!-- header directo - fin -->
 
-			<!-- Overlay - No existen solicitudes -->
-			<div class="container-overlay">
-				<div id="popup-olvide-clave" class="container-overlay__popup">
-					<a href="" class="cerrar-popup">Cerrar</a>
-
-					<svg class="text-center">
-						<use xlink:href="#cruz-error"></use>
-					</svg>
-
-					<div class="mensaje-telefono">
-						<h3 class="mt-5">
-							No existen solicitudes <br />
-
-							pendientes de validación
-						</h3>
-					</div>
-				</div>
-			</div>
+			
 
 			<main class="main-validar-identidad">
 				<!-- Ícono de flecha para ir atrás -->
@@ -367,6 +350,8 @@
 					<svg>
 						<use xlink:href="#lupa-buscar"></use>
 					</svg>
+
+					<p class="error-sin-resultado d-none">No hay coincidencias</p>
 				</div>
 
 				<!-- Ícono notificación y titulo -->
