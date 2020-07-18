@@ -1,0 +1,21 @@
+/* Cabecera de Directo */
+
+.header {
+    
+    &__directo {
+        @include flexCenter();
+        background: $azulDirecto;
+        height: 4.7rem;
+        width: 100%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        &--logo {
+            margin-top: 1rem; 
+            max-width: 18.56rem;
+            width: 100%;
+
+        }
+    }
+}
+

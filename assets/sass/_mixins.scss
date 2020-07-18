@@ -1,0 +1,28 @@
+// Flex center
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
+// Configurar texto
+@mixin configText($color, $weight, $size) {
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+// Botón 
+@mixin configBoton($color) {
+    width: 20rem;
+    appearance: none;
+    border: none;
+    background: $color;
+    font-size: 1.25rem;
+    border-radius: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 48px;
+    margin-top: 1.5rem;
+    outline: none !important;
+    text-transform: uppercase;
+}

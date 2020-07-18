@@ -1,0 +1,717 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+/* MAIN - validacion-identidad-comercio - inicio */
+
+.bienvenida {
+	@include flexCenter();
+	margin-top: 2.4rem;
+	align-items: center;
+	flex-direction: column;
+
+	&__titulo {
+		font-size: 1.5rem;
+		color: $azulTexto;
+		font-weight: bold;
+	}
+
+	&__nombre {
+		font-size: 5vw;
+		color: $azulTexto;
+	}
+
+	&__documento {
+		font-size: 4.9vw;
+		color: $grisTexto;
+	}
+}
+
+.validacion {
+	@include flexCenter();
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2.4rem;
+
+	&__titulo {
+		@include configText($verdeTexto, bold, 1.25rem);
+	}
+
+	&__necesitamos {
+		@include configText($azulTexto, bold, 1.25rem);
+		margin-top: 2.4rem;
+	}
+
+	&__requisitos {
+		margin-top: 0.5rem;
+
+		h4 {
+			@include configText($azulTexto, normal, 1.25rem);
+			line-height: 1.3rem;
+		}
+	}
+}
+
+.botones {
+	@include flexCenter();
+	align-items: center;
+	flex-direction: column;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+
+
+	input, button {
+		font-size: 5.5vw;
+		max-width: 92.5%;
+	
+	}
+	
+	&__verde {
+		@include configBoton(linear-gradient(180deg, #29c001 0%, #1f8e01 100%));
+	}
+
+	&__azul {
+		@include configBoton(linear-gradient(180deg, #0175ed 0%, #00448a 100%));
+	}
+
+	&__blanco {
+		@include configBoton(#ffffff);
+	}
+}
+
+.botones.poco-clara {
+	margin-top: 6.5rem;
+}
+
+.politicas {
+	p {
+		font-family: 'Open Sans', sans-serif;
+		text-align: center;
+		@include configText($grisLista, normal, 11px);
+	}
+}
+
+.boton-politicas {
+	&:focus,
+	&:active {
+		outline: none !important;
+		box-shadow: none;
+	}
+}
+
+.texto-politicas {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	@include configText($grisLista, normal, .9rem);
+	margin-top: -2rem
+}
+
+/* MAIN - validacion-identidad-comercio - fin */
+
+/* ========================================= */
+
+/* MAIN - error-comercio-usuario - inicio */
+
+.icono-alerta {
+	@include flexCenter();
+	align-items: center;
+	position: relative;
+
+	svg {
+		display: block;
+		margin: 0 auto;
+		position: absolute;
+		top: calc(50% + 48px);
+		left: calc(50% - 24px);
+	}
+}
+
+.mensaje-error {
+	margin-top: 10rem;
+
+	h3 {
+		text-align: center;
+		@include configText($azulTexto, normal, 1.9rem);
+	}
+
+	span {
+		position: relative;
+		top: 1.4rem;
+		@include configText($azulTexto, normal, 1.2rem);
+	}
+}
+
+/* MAIN - error-comercio-usuario - fin */
+
+/* ========================================= */
+
+/* MAIN -validacion-identidad-cliente - inicio */
+
+.mensaje-cliente {
+	text-align: center;
+	margin-top: 2.2rem;
+
+	h4 {
+		line-height: 23px;
+		@include configText($azulTexto, bold, 1.25rem);
+	}
+
+	h3 {
+		@include configText($azulTexto, normal, 7.5vw);
+		line-height: 1.7rem;
+		margin-top: 5rem;
+	}
+
+	.limite-30 {
+		@include configText($azulTexto, normal, 1.25rem);
+	}
+}
+
+.mensaje-cliente-felicitaciones {
+	text-align: center;
+
+	h2 {
+		margin-top: 3rem;
+		@include configText($azulTexto, bold, 11vw);
+	}
+
+	h3 {
+		margin-top: 1.45rem;
+		@include configText($azulTexto, 500, 7vw);
+	}
+}
+
+.continuar {
+	@include flexCenter();
+	align-items: center;
+	flex-direction: column;
+
+	.no-continuar {
+		margin-top: 1.8rem;
+		@include configText($grisTexto, normal, 1rem);
+	}
+
+	.final-cliente {
+		margin-top: 7.5rem;
+	}
+}
+
+/* MAIN validacion-identidad-cliente - fin */
+
+/* ========================================= */
+
+/* MAIN login-comercio - inicio */
+
+.container-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	z-index: 9999;
+	cursor: pointer;
+	display: none;
+
+	
+
+	&__popup {
+		position: absolute;
+		max-width: 310px;
+		width: 100%;
+		margin: auto;
+		height: 303px;
+		background: #ffffff;
+		border-radius: 13px;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		.cerrar-popup {
+			position: absolute;
+			right: 1rem;
+			top: 0.2rem;
+			font-size: 1rem;
+			text-decoration: none;
+			color: $grisTexto;
+		}
+
+		svg {
+			@include flexCenter();
+			margin: 1.8rem auto;
+			width: 60px;
+			height: 55px;
+		}
+
+		.mensaje-telefono {
+			h3 {
+				text-align: center;
+				letter-spacing: -0.457692px;
+				line-height: 30px;
+				font-size: 1.45rem;
+				color: $grisError;
+				font-weight: normal;
+
+				.telefono {
+					font-weight: bold;
+				}
+			}
+		}
+
+	
+	}
+}
+
+
+.formulario-login {
+	margin-top: 3.3rem;
+
+	&__label {
+		color: $azulTexto;
+		font-weight: 500;
+		margin-top: 2rem;
+	}
+
+	&__contenedor {
+		&--icon {
+			background: white;
+			border-right: none;
+			border: 1px solid $azulTexto;
+		}
+
+		&--input {
+			border: 1px solid $azulTexto;
+			border-left: none;
+		}
+
+		.form-control:valid {
+			background-color: #ffffff !important;
+		}
+
+		input:not(:placeholder-shown) {
+			background-color: #ffffff !important;
+		}
+
+		input:placeholder-shown {
+			background-color: #ffffff !important;
+		}
+	}
+
+	&__submit {
+		@include flexCenter();
+		align-items: center;
+		flex-direction: column;
+		margin-top: 2.6rem;
+
+		.olvide-clave {
+			margin-top: 2.7rem;
+			@include configText($grisTexto, normal, 0.9rem);
+		}
+	}
+
+	&__error {
+		display: none;
+		position: absolute;
+		@include configText($rojoTexto, 500, 0.7rem);
+	}
+
+	.ojo-password {
+		z-index: 999;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.password-visible {
+		display: none;
+	}
+
+	.no-valido-input {
+		border-left: none !important;
+		border: 1px solid $rojoTexto;
+	}
+
+	.no-valido-icon {
+		border: 1px solid $rojoTexto;
+		border-right: none;
+	}
+}
+
+/* MAIN login-comercio - fin */
+
+/* ========================================= */
+
+/* MAIN ingreso-comercio - inicio */
+
+.ingreso-saludo {
+	h3 {
+		margin-top: 4.7rem;
+		text-align: center;
+		@include configText($azulTexto, normal, 1.9rem);
+	}
+}
+
+.ingreso-botones {
+	margin-top: 3.9rem;
+	@include flexCenter();
+	flex-direction: column;
+	align-items: center;
+}
+
+.txt-normal {
+	text-transform: initial;
+}
+
+/* MAIN ingreso-comercio - fin */
+
+/* ========================================= */
+
+/* MAIN sacar-foto-frente - inicio */
+
+.main-frente,
+.main-dorso,
+.main-selfie,
+.main-gestual {
+	@include flexCenter();
+	align-items: center;
+	flex-direction: column;
+
+	&__icono {
+		margin-top: 1.5rem;
+
+		svg {
+			width: 13.25rem;
+		}
+	}
+
+	&__titulo {
+		margin-top: 1.5rem;
+
+		h3 {
+			@include configText($azulTexto, bold, 1.25rem);
+		}
+
+		p {
+			@include configText($azulTexto, normal, 5vw);
+		}
+	}
+
+	&__reglas {
+
+		margin-left: 1.9rem;
+
+		&--requisitos {
+			margin-top: 1.3rem;
+			@include configText($azulTexto, bold, 4.2vw);
+
+			span {
+				svg {
+					width: 2rem;
+					height: 1.4rem;
+					margin-left: -.6rem;
+					margin-right: 0.4rem;
+				}
+			}
+		}
+
+		&--selfie {
+			margin-top: 1.9rem;
+			line-height: 0.01rem;
+			@include configText($azulTexto, bold, 3.8vw);
+		}
+
+		&--selfie:nth-child(2) {
+			margin-top: 1.4rem;
+		}
+
+		.selfie-cara {
+			margin-top: 0.7rem;
+
+			span {
+				margin-right: -0.6rem;
+				margin-left: -0.8rem;
+			}
+		}
+	}
+
+	&__botones {
+		margin-top: 0.1rem;
+	}
+}
+
+/* MAIN sacar-foto-frente - fin */
+
+/* ========================================= */
+
+/* MAIN verificar-foto-frente - inicio */
+
+.main-verificar-frente,
+.main-verificar-dorso,
+.main-verificar-selfie,
+.main-verificar-gestual {
+	&__cabecera {
+		@include flexCenter();
+		flex-direction: column;
+		align-items: center;
+
+		p {
+			margin-top: 1.3rem;
+			@include configText($azulTexto, normal, 1.25rem);
+		}
+
+		p:nth-child(2) {
+			margin-top: -0.2rem;
+			@include configText($azulTexto, bold, 1.25rem);
+		}
+	}
+
+	&__imagen {
+		margin: 0 auto;
+		width: 19.375rem;
+		height: 12.67rem;
+		border-radius: 15px;
+	}
+
+	&__botones {
+		flex-direction: row;
+		margin-top: 0.3rem;
+	}
+}
+
+/* MAIN verificar-foto-frente - fin */
+
+/* ========================================= */
+
+/* MAIN sacar-foto-gestual - inicio */
+
+.main-gestual {
+	&__titulo--gestual {
+		margin-top: 0.4rem;
+		@include configText($verdeTexto, bold, 1.25rem);
+	}
+
+	&__subtitulo {
+		@include configText($azulTexto, bold, 5.125vw);
+	}
+
+	&__reglas {
+		&--gestual {
+			@include configText($azulTexto, bold, 4.1vw);
+			line-height: 0.6rem;
+		}
+	}
+
+	&__icono {
+		&--gestual {
+			margin-top: 2.2rem;
+			svg {
+				width: 13.25rem;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+/* MAIN sacar-foto-gestual  - fin */
+
+/* ========================================= */
+
+/* MAIN finalizando-comercio - inicio */
+
+.main-finalizando-comercio {
+	margin-bottom: 5rem;
+	&__mensaje {
+		@include configText($azulTexto, normal, 1.75rem);
+	}
+}
+
+.separador-invisible {
+	background: red;
+	height: 4rem;
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.footer-crear-cuenta {
+	background: $azulTexto;
+	position: relative;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 14.58rem;
+	border-radius: 19px 19px 0 0;
+
+
+	&__titulo {
+		P {
+			margin-top: 1.9rem;
+			text-align: center;
+			line-height: 0;
+			font-style: normal;
+			@include configText(#fff, bold, 5vw);
+		}
+	}
+
+	&__botones {
+		@include flexCenter();
+		align-items: center;
+		flex-direction: column;
+		margin-top: 1.8rem;
+
+		&--google, &--facebook {
+			width: 92.5%;
+		}
+
+		&--facebook {
+			text-transform: capitalize;
+			@include configText($azulFacebook, bold, 0.9rem);
+		}
+
+		.icon-facebook,
+		.icon-google {
+			position: relative;
+			width: 1rem;
+			height: 1rem;
+			top: -2rem;
+			right: 35%;
+		}
+
+		.icon-google {
+			top: -2rem;
+		}
+
+		&--google {
+			text-transform: capitalize;
+			@include configText($rojoGoogle, bold, 0.9rem);
+		}
+	}
+}
+
+/* MAIN finalizando-comercio - fin */
+
+/* ========================================= */
+
+/* MAIN validar-identidad - inicio */
+
+.main-validar-identidad {
+	&__regresar {
+		svg {
+			width: 22px;
+			height: 21px;
+		}
+	}
+
+	&__buscador {
+		#buscador {
+			font-family: 'Roboto', sans-serif;
+			@include flexCenter();
+			margin: 0.7rem auto;
+			max-width: 90vw;
+			width: 100%;
+			height: 1.9rem;
+			border-radius: 13.5rem;
+			background-color: $grisFondo;
+			border: none;
+			padding-left: 4.4rem;
+			padding-bottom: 0.07rem;
+			@include configText($blanco, 600, 0.8rem);
+
+			&::placeholder {
+				@include configText($blanco, 600, 0.8rem);
+			}
+		}
+
+		svg {
+			position: absolute;
+			top: 8.6rem;
+			right: 1.8rem;
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	&__titulo {
+		@include flexCenter();
+		flex-direction: row;
+
+		h2 {
+			margin-top: 0.5rem;
+			@include configText($azulTexto, normal, 1.375rem);
+		}
+	}
+
+	&__resultados {
+		&--lista {
+			.persona {
+				height: 3.6rem;
+
+				.persona-nombre {
+					font-family: 'Roboto', sans-serif;
+					@include configText($grisLista, normal, 1rem);
+				}
+
+				.persona-dni {
+					font-family: 'Roboto', sans-serif;
+
+					position: relative;
+					bottom: 0.4rem;
+					@include configText($grisLista, normal, 0.75rem);
+				}
+
+				svg {
+					position: relative;
+					float: right;
+					width: 24px;
+					height: 24px;
+					bottom: 1.96rem;
+				}
+			}
+		}
+	}
+
+	&__paginador {
+		// @include flexCenter();
+		margin: 0 auto;
+
+		&--atras {
+		}
+
+		&--numeros {
+			margin-top: 2.23rem;
+
+			p {
+				position: relative;
+				left: 1.9rem;
+				bottom: 1.4rem;
+				font-family: 'Roboto', sans-serif;
+				@include configText($grisLista, normal, 0.75rem);
+			}
+		}
+
+		.flecha-paginador {
+			width: 46px;
+			height: 46px;
+		}
+
+		.flecha-paginador.atras {
+			margin-left: 6rem;
+		}
+
+		.flecha-paginador.adelante {
+			margin-left: -3rem;
+		}
+	}
+
+	.tick-active {
+		filter: invert(47%) sepia(47%) saturate(2433%) hue-rotate(73deg)
+			brightness(94%) contrast(103%);
+	}
+}
+
+/* MAIN validar-identidad - fin */
+
+/* ========================================= */
