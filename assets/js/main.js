@@ -1,5 +1,3 @@
-
-
 const path = window.location.pathname;
 const paginaActual = path.split('/').pop();
 const miSesion = window.sessionStorage;
@@ -13,7 +11,7 @@ const validarContraseña = (input) => {
 	let letras = 0;
 	let numeros = 0;
 
-	console.log(input.value)
+	console.log(input.value);
 
 	for (let i = 0; i < input.value.length; i++) {
 		console.log(input.value[i]);
@@ -544,7 +542,8 @@ const bodyError = document.querySelector('.body-error');
 
 if (
 	paginaActual == 'error-lorem.html' ||
-	paginaActual == 'error-conexion.html'
+	paginaActual == 'error-conexion.html' ||
+	paginaActual == 'error-solicitudes.html'
 ) {
 	olvideClave.addEventListener('click', (e) => {
 		e.preventDefault();
