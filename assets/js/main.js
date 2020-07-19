@@ -1,21 +1,17 @@
 const path = window.location.pathname;
-const paginaActual = path.split('/').pop();
 const miSesion = window.sessionStorage;
-console.log(paginaActual);
+
+// ID del body de la página actual
+const bodyId = document.body.id;
 
 /* FUNCIONES */
 
 // VALIDACIÓN CONTRASEÑA
 const validarContraseña = (input) => {
-	let regex = /[A-Za-z0-9]+/;
 	let letras = 0;
 	let numeros = 0;
 
-	console.log(input.value);
-
 	for (let i = 0; i < input.value.length; i++) {
-		console.log(input.value[i]);
-
 		if (isNaN(input.value[i])) {
 			letras += 1;
 		} else if (!isNaN(input.value[i])) {
@@ -28,7 +24,7 @@ const validarContraseña = (input) => {
 
 // SACAR FOTO
 const sacarFoto = (boton, input, tipo) => {
-	miSesion.clear();
+	// miSesion.clear();
 	boton.addEventListener('click', () => {
 		input.click();
 	});
@@ -54,7 +50,6 @@ const sacarFoto = (boton, input, tipo) => {
 
 // VERIFICAR FOTO
 const verificarFoto = (boton, input, contenedor, tipo) => {
-	console.log(miSesion);
 	let URL = miSesion.getItem(tipo);
 
 	contenedor.style.backgroundImage = `url(${URL})`;
@@ -66,6 +61,7 @@ const verificarFoto = (boton, input, contenedor, tipo) => {
 	});
 
 	input.addEventListener('change', () => {
+		miSesion.clear();
 		const repeatReader = new FileReader();
 
 		repeatReader.onloadend = function () {
@@ -77,13 +73,59 @@ const verificarFoto = (boton, input, contenedor, tipo) => {
 	});
 };
 
-// TOGGLE TICK VERDE
+// FOTO POCO CLARA
+const fotoPocoClara = (boton, input) => {
+	boton.addEventListener('click', (e) => {
+		input.click();
+	});
 
+	input.addEventListener('change', () => {
+		const unclearReader = new FileReader();
+
+		unclearReader.onloadend = function () {
+			let fotoVerificar = 'frente';
+
+			setTimeout(() => {
+				window.location.href = `http://ringofox.agency/Directo-Paperless/Etapa3/verificar-foto-${fotoVerificar}.html`;
+			}, 1000);
+		};
+
+		unclearReader.readAsDataURL(input.files[0]);
+	});
+};
+
+// TOGGLE TICK VERDE
 const toggleTick = (botonTick) => {
 	for (let i = 0; i < botonTick.length; i++) {
 		botonTick[i].addEventListener('click', () => {
-			console.log(botonTick[i].childNodes[1]);
 			botonTick[i].childNodes[1].classList.toggle('tick-active');
+		});
+	}
+};
+
+// FILTRAR BÚSQUEDA
+const filtrarBusqueda = (item, consulta, idx) => {
+	let contenido = `
+				<li class="list-group-item persona">
+						<span class="persona-nombre"
+							>${personaNombre[idx].textContent}</span
+						>
+						<br />
+						<span class="persona-dni">${personaDNI[idx].textContent}</span>
+						<a href="#" class="persona-tick">
+							<svg class="mt-2 ml-4">
+								<use xlink:href="#tick"></use>
+							</svg>
+						</a>
+					</li>					
+				`;
+
+	if (item.indexOf(consulta) !== -1) {
+		listaResultados.insertAdjacentHTML('afterbegin', contenido);
+		let items = listaResultados.children[0].childNodes[7];
+
+		items.onclick = items.addEventListener('click', () => {
+			items.childNodes[1].classList.toggle('tick-active');
 		});
 	}
 };
@@ -103,7 +145,7 @@ const errorContraseña = document.querySelector('.error-contraseña');
 const caracteres = /[A-Za-z0-9]+/;
 
 // Si la página actual es login-comercio.html ejecuto el código
-if (paginaActual == 'login-comercio.html') {
+if (bodyId == 'login-comercio') {
 	// Validación de formulario
 	formularioLogin.addEventListener('submit', (e) => {
 		// Input usuario vacío
@@ -212,7 +254,8 @@ if (paginaActual == 'login-comercio.html') {
 const inputFotoFrente = document.getElementById('input-foto-frente');
 const botonFotoFrente = document.getElementById('boton-foto-frente');
 
-if (paginaActual == 'sacar-foto-frente.html') {
+if (bodyId == 'sacar-foto-frente') {
+	miSesion.clear();
 	sacarFoto(botonFotoFrente, inputFotoFrente, 'frente');
 }
 
@@ -235,7 +278,7 @@ const botonRepetirFotoFrente = document.getElementById(
 	'boton-repetir-foto-frente'
 );
 
-if (paginaActual == 'verificar-foto-frente.html') {
+if (bodyId == 'verificar-foto-frente') {
 	verificarFoto(
 		botonRepetirFotoFrente,
 		inputRepetirFotoFrente,
@@ -248,31 +291,16 @@ if (paginaActual == 'verificar-foto-frente.html') {
 
 /* ============================================================================= */
 
-/* FRENTE-POCO-CLARA  - inicio */
+/* FOTO-POCO-CLARA  - inicio */
 
 const inputFotoPocoClara = document.getElementById('input-foto-poco-clara');
 const botonFotoPocoClara = document.getElementById('boton-foto-poco-clara');
 
-if (paginaActual == 'frente-poco-clara.html') {
-	botonFotoPocoClara.addEventListener('click', (e) => {
-		inputFotoPocoClara.click();
-	});
-
-	inputFotoPocoClara.addEventListener('change', () => {
-		const unclearReader = new FileReader();
-
-		unclearReader.onloadend = function () {
-			miSesion.setItem('fotoFrente', unclearReader.result);
-			setTimeout(() => {
-				window.location.href = `http://ringofox.agency/Directo-Paperless/Etapa3/verificar-foto-frente.html`;
-			}, 1000);
-		};
-
-		unclearReader.readAsDataURL(inputFotoPocoClara.files[0]);
-	});
+if (bodyId == 'foto-poco-clara') {
+	fotoPocoClara(botonFotoPocoClara, inputFotoPocoClara);
 }
 
-/* FRENTE-POCO-CLARA  - fin */
+/* FOTO-POCO-CLARA  - fin */
 
 /* ============================================================================= */
 
@@ -281,7 +309,7 @@ if (paginaActual == 'frente-poco-clara.html') {
 const inputFotoDorso = document.getElementById('input-foto-dorso');
 const botonFotoDorso = document.getElementById('boton-foto-dorso');
 
-if (paginaActual == 'sacar-foto-dorso.html') {
+if (bodyId == 'sacar-foto-dorso') {
 	sacarFoto(botonFotoDorso, inputFotoDorso, 'dorso');
 }
 
@@ -301,7 +329,7 @@ const botonRepetirFotoDorso = document.getElementById(
 	'boton-repetir-foto-dorso'
 );
 
-if (paginaActual == 'verificar-foto-dorso.html') {
+if (bodyId == 'verificar-foto-dorso') {
 	verificarFoto(
 		botonRepetirFotoDorso,
 		inputRepetirFotoDorso,
@@ -319,7 +347,7 @@ if (paginaActual == 'verificar-foto-dorso.html') {
 const inputFotoSelfie = document.getElementById('input-foto-selfie');
 const botonFotoSelfie = document.getElementById('boton-foto-selfie');
 
-if (paginaActual == 'sacar-foto-selfie.html') {
+if (bodyId == 'sacar-foto-selfie') {
 	sacarFoto(botonFotoSelfie, inputFotoSelfie, 'selfie');
 }
 
@@ -339,13 +367,16 @@ const botonRepetirFotoSelfie = document.getElementById(
 	'boton-verificar-foto-selfie'
 );
 
-if (paginaActual == 'verificar-foto-selfie.html') {
+if (bodyId == 'verificar-foto-selfie') {
+	let URL = miSesion.getItem('selfie');
 	verificarFoto(
 		botonRepetirFotoSelfie,
 		inputRepetirFotoSelfie,
 		contenedorFotoSelfie,
 		'selfie'
 	);
+	miSesion.clear();
+	miSesion.setItem('selfie', URL);
 }
 
 /* VERIFICAR-FOTO-SELFIE - fin */
@@ -357,7 +388,7 @@ if (paginaActual == 'verificar-foto-selfie.html') {
 const inputFotoGestual = document.getElementById('input-foto-gestual');
 const botonFotoGestual = document.getElementById('boton-foto-gestual');
 
-if (paginaActual == 'sacar-foto-gestual.html') {
+if (bodyId == 'sacar-foto-gestual') {
 	sacarFoto(botonFotoGestual, inputFotoGestual, 'gestual');
 }
 
@@ -377,7 +408,7 @@ const botonRepetirFotoGestual = document.getElementById(
 	'boton-verificar-foto-gestual'
 );
 
-if (paginaActual == 'verificar-foto-gestual.html') {
+if (bodyId == 'verificar-foto-gestual') {
 	verificarFoto(
 		botonRepetirFotoGestual,
 		inputRepetirFotoGestual,
@@ -403,7 +434,7 @@ const listaResultados = document.querySelector(
 const mensajeErrorOverlay = document.querySelector('.container-overlay');
 const mensajeError = document.querySelector('.error-sin-resultado');
 
-if (paginaActual == 'validar-identidad.html') {
+if (bodyId == 'validar-identidad') {
 	const resultadosDefault = listaResultados.innerHTML;
 	// Al clickear el tick el mismo hace toggle de color verde
 	toggleTick(botonTick);
@@ -419,32 +450,7 @@ if (paginaActual == 'validar-identidad.html') {
 			for (let i = 0; i < personaNombre.length; i++) {
 				let persona = personaNombre[i].textContent.toLowerCase();
 				let personaBuscada = e.target.value.toLowerCase();
-				let contenido = `
-				<li class="list-group-item persona">
-						<span class="persona-nombre"
-							>${personaNombre[i].textContent}</span
-						>
-						<br />
-						<span class="persona-dni">${personaDNI[i].textContent}</span>
-						<a href="#" class="persona-tick">
-							<svg class="mt-2 ml-4">
-								<use xlink:href="#tick"></use>
-							</svg>
-						</a>
-					</li>
-			
-				
-				`;
-
-				if (persona.split(',')[0].indexOf(personaBuscada) !== -1) {
-					listaResultados.insertAdjacentHTML('afterbegin', contenido);
-					console.log(listaResultados.children[0].childNodes[7]);
-					let items = listaResultados.children[0].childNodes[7];
-
-					items.onclick = items.addEventListener('click', () => {
-						items.childNodes[1].classList.toggle('tick-active');
-					});
-				}
+				filtrarBusqueda(persona, personaBuscada, i);
 			}
 		}
 
@@ -454,32 +460,8 @@ if (paginaActual == 'validar-identidad.html') {
 			for (let i = 0; i < personaDNI.length; i++) {
 				let dniPersona = personaDNI[i].textContent.split(' ')[1];
 				let dniSinPuntos = dniPersona.replace(/\./g, '');
-				let contenido = `
-				<li class="list-group-item persona">
-						<span class="persona-nombre"
-							>${personaNombre[i].textContent}</span
-						>
-						<br />
-						<span class="persona-dni">${personaDNI[i].textContent}</span>
-						<a href="#" class="persona-tick">
-							<svg class="mt-2 ml-4">
-								<use xlink:href="#tick"></use>
-							</svg>
-						</a>
-					</li>
-			
-				
-				`;
-
-				if (dniSinPuntos.indexOf(e.target.value) !== -1) {
-					listaResultados.insertAdjacentHTML('afterbegin', contenido);
-					console.log(listaResultados.children[0].childNodes[7]);
-					let items = listaResultados.children[0].childNodes[7];
-
-					items.onclick = items.addEventListener('click', () => {
-						items.childNodes[1].classList.toggle('tick-active');
-					});
-				}
+				let dniBuscado = e.target.value;
+				filtrarBusqueda(dniSinPuntos, dniBuscado, i);
 			}
 		}
 
@@ -488,19 +470,18 @@ if (paginaActual == 'validar-identidad.html') {
 			listaResultados.innerHTML = '';
 			listaResultados.insertAdjacentHTML('afterbegin', resultadosDefault);
 
+			// Añadir función de prender y apagar tick al HTML insertado
 			for (let i = 0; i < personaNombre.length; i++) {
 				let items;
-				if (i === 0) {
-					items = listaResultados.children[i].childNodes[7];
-				} else {
-					items = listaResultados.children[i].childNodes[7].previousSibling;
-				}
-				console.log(items);
+				i === 0
+					? (items = listaResultados.children[i].childNodes[7])
+					: (items = listaResultados.children[i].childNodes[7].previousSibling);
 
 				items.onclick = items.addEventListener('click', () => {
 					items.childNodes[1].classList.toggle('tick-active');
 				});
 			}
+			// Quitar mensaje de 'no hay coincidencias'
 			mensajeError.style.display = '';
 		}
 
@@ -541,9 +522,9 @@ const containerOverlayError = document.querySelector('.container-overlay');
 const bodyError = document.querySelector('.body-error');
 
 if (
-	paginaActual == 'error-lorem.html' ||
-	paginaActual == 'error-conexion.html' ||
-	paginaActual == 'error-solicitudes.html'
+	bodyId == 'error-lorem' ||
+	bodyId == 'error-conexion' ||
+	bodyId == 'error-solicitudes'
 ) {
 	olvideClave.addEventListener('click', (e) => {
 		e.preventDefault();

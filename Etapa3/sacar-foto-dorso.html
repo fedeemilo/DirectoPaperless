@@ -14,7 +14,7 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body>
+	<body id="sacar-foto-dorso">
 		<!-- iconos svg - inicio -->
 		<svg
 			aria-hidden="true"
@@ -170,7 +170,7 @@
 						stroke-width="2"
 					/>
 				</symbol>
-		
+
 				<symbol
 					id="icono-ojo"
 					width="30"
@@ -284,12 +284,14 @@
 					<use xlink:href="#foto-dorso"></use>
 				</svg>
 			</div>
-			<img src="../assets/images/huella-dactilar.svg" alt="huella" style="position:relative; left: 3.7rem; top: -4.6rem">
-
-	
+			<img
+				src="../assets/images/huella-dactilar.svg"
+				alt="huella"
+				style="position: relative; left: 3.7rem; top: -4.6rem;"
+			/>
 
 			<!-- Reglas antes de sacar foto -->
-			<div class="main-dorso__reglas" style="margin-top: -1.5rem">
+			<div class="main-dorso__reglas" style="margin-top: -1.5rem;">
 				<p class="main-dorso__reglas--requisitos">
 					<span
 						><svg class="">
@@ -327,7 +329,13 @@
 					accept="image/*"
 					capture="capture"
 				/>
-				<button class="botones__azul">Volver</button>
+				<button
+					type="button"
+					onclick="javascript:history.back()"
+					class="botones__azul"
+				>
+					Volver
+				</button>
 			</div>
 		</main>
 

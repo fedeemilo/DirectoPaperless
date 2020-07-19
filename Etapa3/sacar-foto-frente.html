@@ -14,7 +14,7 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body>
+	<body id="sacar-foto-frente">
 		<!-- iconos svg - inicio -->
 		<svg
 			aria-hidden="true"
@@ -266,7 +266,7 @@
 				</div>
 			</header>
 			<!-- header directo - fin -->
-	
+
 			<main class="main-frente">
 				<!-- SVG foto frente DNI -->
 				<div class="main-frente__icono">
@@ -274,12 +274,12 @@
 						<use xlink:href="#foto-frente"></use>
 					</svg>
 				</div>
-	
+
 				<!-- Título -->
 				<div class="main-frente__titulo">
 					<h3>Sacar Foto Frente DNI</h3>
 				</div>
-	
+
 				<!-- Reglas antes de sacar foto -->
 				<div class="main-frente__reglas">
 					<p class="main-frente__reglas--requisitos">
@@ -304,7 +304,7 @@
 						Evitá el brillo sobre el documento
 					</p>
 				</div>
-	
+
 				<!-- Botones -->
 				<div class="botones main-frente__botones">
 					<button id="boton-foto-frente" class="botones__verde">
@@ -319,7 +319,13 @@
 						accept="image/*"
 						capture="capture"
 					/>
-					<button class="botones__azul">Volver</button>
+					<button
+						type="button"
+						onclick="javascript:history.back()"
+						class="botones__azul"
+					>
+						Volver
+					</button>
 				</div>
 			</main>
 		</div>

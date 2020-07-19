@@ -14,7 +14,7 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body>
+	<body id="sacar-foto-selfie">
 		<!-- iconos svg - inicio -->
 		<svg
 			aria-hidden="true"
@@ -173,7 +173,7 @@
 				</div>
 			</header>
 			<!-- header directo - fin -->
-	
+
 			<main class="main-selfie">
 				<!-- Título -->
 				<div class="main-selfie__titulo text-center">
@@ -182,20 +182,22 @@
 						sin sonreir
 					</p>
 				</div>
-	
+
 				<!-- SVG foto selfie DNI -->
 				<div class="main-selfie__icono">
 					<svg style="max-width: 100%; margin-top: -1rem;">
 						<use xlink:href="#foto-selfie"></use>
 					</svg>
 				</div>
-	
+
 				<!-- Reglas antes de sacar foto -->
 				<div class="main-selfie__reglas text-center mx-auto">
-	                <p class="main-selfie__reglas--selfie">Que la cara se vea frontal y completa</p>
-	                <p class="main-selfie__reglas--selfie">Sin anteojos ni gorro</p>
+					<p class="main-selfie__reglas--selfie">
+						Que la cara se vea frontal y completa
+					</p>
+					<p class="main-selfie__reglas--selfie">Sin anteojos ni gorro</p>
 				</div>
-	
+
 				<!-- Botones -->
 				<div class="botones main-selfie__botones">
 					<button id="boton-foto-selfie" class="botones__verde">
@@ -210,7 +212,13 @@
 						accept="image/*"
 						capture="capture"
 					/>
-					<button class="botones__azul">Volver</button>
+					<button
+						class="botones__azul"
+						type="button"
+						onclick="javascript:history.back()"
+					>
+						Volver
+					</button>
 				</div>
 			</main>
 		</div>

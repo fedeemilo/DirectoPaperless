@@ -14,7 +14,7 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body>
+	<body id="sacar-foto-gestual">
 		<!-- iconos svg - inicio -->
 		<svg
 			aria-hidden="true"
@@ -858,7 +858,7 @@
 				</div>
 			</header>
 			<!-- header directo - fin -->
-	
+
 			<main class="main-gestual">
 				<!-- Subtítulo -->
 				<div class="main-gestual__titulo--gestual text-center">
@@ -866,81 +866,74 @@
 						¡Última foto y terminamos!
 					</p>
 				</div>
-	
+
 				<!-- Subtítulo -->
 				<!-- Existen 8 variantes de subtítulo diferente para cada tipo de gesto -->
 				<div class="main-gestual__subtitulo text-center">
-	
-	                <!-- =====================================================-->
-	
-	                <!-- Gesto 1 - Abra la boca                       inicio  -->
-	
-	               
-	                    <!-- <p>
+					<!-- =====================================================-->
+
+					<!-- Gesto 1 - Abra la boca                       inicio  -->
+
+					<!-- <p>
 	                        Sacar una foto <br />
 	                        abriendo la boca
 	                    </p>  -->
-	            
-	                
-	                <!-- Gesto 1 - Abra la boca                          fin  -->
-	                
-	                <!-- ==================================================== -->
-	
-	                <!-- Gesto 2 - Guiñe un ojo                       inicio  -->
-	                
-					<p style="margin-top: -.5rem">
+
+					<!-- Gesto 1 - Abra la boca                          fin  -->
+
+					<!-- ==================================================== -->
+
+					<!-- Gesto 2 - Guiñe un ojo                       inicio  -->
+
+					<p style="margin-top: -0.5rem;">
 						Sacar una foto <br />
 						guiñando un ojo (izquierdo o derecho)
-	                </p>
-	                
-	                <!-- Gesto 2 - Guiñe un ojo                           fin -->
-	
-	                <!-- ==================================================== -->
-	                
-	                <!-- Gesto 3 - Sonria (mujer)                      inicio -->
-	
-	          
-	                    <!-- <p>
+					</p>
+
+					<!-- Gesto 2 - Guiñe un ojo                           fin -->
+
+					<!-- ==================================================== -->
+
+					<!-- Gesto 3 - Sonria (mujer)                      inicio -->
+
+					<!-- <p>
 	                        Sacar una foto <br />
 	                        sonriendo
 	                    </p>  -->
-	            
-	                
-	                <!-- Gesto 3 - Sonria (mujer)                         fin -->
-	                
-	                <!-- ==================================================== -->
-	
-	                <!-- Gesto 4 - Neutro (mujer)                      inicio -->
-	
-	              
-	                    <!-- <p>
+
+					<!-- Gesto 3 - Sonria (mujer)                         fin -->
+
+					<!-- ==================================================== -->
+
+					<!-- Gesto 4 - Neutro (mujer)                      inicio -->
+
+					<!-- <p>
 	                        Sacar una foto <br />
 	                        sin sonreir
 	                    </p>  -->
-	            
-	                
-	                <!-- Gesto 4 - Neutro                                 fin -->
-	                
-	                
-	
+
+					<!-- Gesto 4 - Neutro                                 fin -->
 				</div>
-	
+
 				<!-- SVG foto gestual DNI -->
 				<div class="main-gestual__icono--gestual mb-4">
 					<svg style="transform: scale(1.45); width: 212px; margin: 0 auto;">
 						<use xlink:href="#gesto-guiño-mujer"></use>
 					</svg>
 				</div>
-	
+
 				<!-- Reglas antes de sacar foto -->
-				<div class="main-gestual__reglas text-center mx-auto" >
-					<p class="main-gestual__reglas--gestual mt-2" style="line-height: 1.5vw !important">
+				<div class="main-gestual__reglas text-center mx-auto">
+					<p
+						class="main-gestual__reglas--gestual mt-2"
+						style="line-height: 1.5vw !important;"
+					>
 						Que se vea la cara frontal y completa
 					</p>
 					<p class="main-gestual__reglas--gestual">Sin anteojos ni gorro</p>
 					<p class="main-gestual__reglas--gestual">Que nada tape la cara</p>
 				</div>
-	
+
 				<!-- Botones -->
 				<div class="botones main-gestual__botones" style="margin-top: -1rem;">
 					<button id="boton-foto-gestual" class="botones__verde">
@@ -955,7 +948,13 @@
 						accept="image/*"
 						capture="capture"
 					/>
-					<button class="botones__azul">Volver</button>
+					<button
+						class="botones__azul"
+						type="button"
+						onclick="javascript:history.back()"
+					>
+						Volver
+					</button>
 				</div>
 			</main>
 		</div>
