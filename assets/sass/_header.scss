@@ -1,21 +1,61 @@
 /* Cabecera de Directo */
 
-.header {
-    
-    &__directo {
-        @include flexCenter();
-        background: $azulDirecto;
-        height: 4.7rem;
-        width: 100%;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+.header,
+.header-documentacion {
+	&__directo {
+		@include flexCenter();
+		background: $azulDirecto;
+		height: 4.7rem;
+		width: 100%;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 
-        &--logo {
-            margin-top: 1rem; 
-            max-width: 18.56rem;
-            width: 100%;
-
-        }
-    }
+		&--logo {
+			margin-top: 1rem;
+			max-width: 18.56rem;
+			width: 100%;
+		}
+	}
 }
 
+.header-documentacion {
+	&__directo {
+		flex-direction: column;
+		height: 7.25rem;
+
+		&--logo {
+			margin: 1.1rem auto;
+		}
+
+		&--titulo {
+			div {
+				position: absolute;
+				top: 5rem;
+                left: 1rem;
+                
+                a {
+                    position: absolute;
+                    z-index: 999;
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+			}
+
+			h3 {
+                position: relative;
+                bottom: .1rem;
+				text-align: center;
+				@include configText($blanco, bold, 22px);
+			}
+		}
+	}
+}
+
+// Header con colores invertidos
+.cargar-documentacion {
+	&__directo {
+		background: $blanco !important;
+	}
+}

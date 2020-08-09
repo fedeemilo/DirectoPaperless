@@ -1,0 +1,20 @@
+DIRECTO - PAPERLESS
+
+archivos del proyecto:
+
+- /assets -> carpeta que contiene :
+				- /css  -> archivo general de estilos stlyle.css
+					-> archivo con estilos minificados de bootstrap 5
+
+				- /js   -> archivo js de bootstrap 5
+					-> archivo general para la funcionalidad de las pantallas main.js**
+
+** Dentro del archivo main.js en la línea 46 dentro de la función 'sacarFoto' , se redirecciona a la siguiente
+página (verificar-foto), la cual está hosteada en el servidor de Ringofox. Ésa línea deben cambiarla por la dirección
+en dónde suban el proyecto, y especificamente la pantalla de verificar foto. 			
+
+- /Etapa1 , /Etapa2, /Etapa3, /Etapa4 -> archivos html distribuidos en cada etapa correspondiente
+
+
+
+* Lo ideal es directamente ubicar la carpeta de la forma en que se encuentra organizada, directamente en el servidor.

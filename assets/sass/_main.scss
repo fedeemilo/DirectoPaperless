@@ -58,13 +58,12 @@
 	margin-top: 3rem;
 	margin-bottom: 1rem;
 
-
-	input, button {
+	input,
+	button {
 		font-size: 5.5vw;
 		max-width: 92.5%;
-		
 	}
-	
+
 	&__verde {
 		@include configBoton(linear-gradient(180deg, #29c001 0%, #1f8e01 100%));
 	}
@@ -101,8 +100,8 @@
 .texto-politicas {
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
-	@include configText($grisLista, normal, .9rem);
-	margin-top: -2rem
+	@include configText($grisLista, normal, 0.9rem);
+	margin-top: -2rem;
 }
 
 /* MAIN - validacion-identidad-comercio - fin */
@@ -215,8 +214,6 @@
 	cursor: pointer;
 	display: none;
 
-	
-
 	&__popup {
 		position: absolute;
 		max-width: 310px;
@@ -259,15 +256,12 @@
 				}
 			}
 		}
-
-	
 	}
 }
 
 .container-overlay.error {
 	display: block;
 }
-
 
 .formulario-login {
 	margin-top: 3.3rem;
@@ -288,14 +282,13 @@
 		&--input {
 			border: 1px solid $azulTexto;
 			border-left: none;
-			outline:0px !important;
-    		-webkit-appearance:none;
+			outline: 0px !important;
+			-webkit-appearance: none;
 			box-shadow: none !important;
-			
+
 			&:focus {
 				border: 1px solid $azulTexto;
-			border-left: none;
-
+				border-left: none;
 			}
 		}
 
@@ -413,9 +406,6 @@
 	}
 
 	&__reglas {
-
-		
-
 		&--requisitos {
 			margin-top: 1.3rem;
 			@include configText($azulTexto, bold, 4.2vw);
@@ -424,7 +414,7 @@
 				svg {
 					width: 2rem;
 					height: 1.4rem;
-					margin-left: -.6rem;
+					margin-left: -0.6rem;
 					margin-right: 0.4rem;
 				}
 			}
@@ -450,8 +440,10 @@
 		}
 	}
 
-	&__reglas.frente, &__reglas.dorso, &__reglas.gestual {
-	margin-left: 1.8rem;
+	&__reglas.frente,
+	&__reglas.dorso,
+	&__reglas.gestual {
+		margin-left: 1.8rem;
 	}
 
 	&__botones {
@@ -562,7 +554,6 @@
 	height: 12.98rem;
 	border-radius: 19px 19px 0 0;
 
-
 	&__titulo {
 		P {
 			margin-top: 1.9rem;
@@ -579,7 +570,8 @@
 		flex-direction: column;
 		margin-top: 1.8rem;
 
-		&--google, &--facebook {
+		&--google,
+		&--facebook {
 			width: 92.5%;
 		}
 
@@ -614,7 +606,8 @@
 
 /* MAIN validar-identidad - inicio */
 
-.main-validar-identidad {
+.main-validar-identidad,
+.main-cargar-documentacion {
 	&__regresar {
 		svg {
 			width: 22px;
@@ -694,9 +687,6 @@
 		// @include flexCenter();
 		margin: 0 auto;
 
-		&--atras {
-		}
-
 		&--numeros {
 			margin-top: 2.23rem;
 
@@ -730,5 +720,196 @@
 }
 
 /* MAIN validar-identidad - fin */
+
+/* ========================================= */
+
+/* MAIN cargar-documentacion - inicio */
+
+#cargar-documentacion {
+	background: $azulDirecto;
+}
+
+.main-cargar-documentacion {
+	&__titulo {
+		h3 {
+			position: relative;
+			top: 0.9rem;
+			text-align: center;
+			@include configText($blanco, bold, 22px);
+		}
+
+		&--atras {
+			position: absolute;
+			top: 5.55rem;
+			left: 1rem;
+		}
+	}
+
+	&__subtitulo {
+		@include flexCenter();
+		flex-direction: row;
+
+		h2 {
+			margin-top: 0.5rem;
+			@include configText($blanco, normal, 1.375rem);
+		}
+	}
+
+	&__resultados {
+		&--lista {
+			.persona {
+				background: $azulDirecto;
+
+				.persona-nombre,
+				.persona-dni {
+					color: $blanco;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
+	&__paginador {
+		&--numeros {
+			p {
+				color: $blanco;
+			}
+		}
+	}
+
+	.tick-active-doc {
+		filter: brightness(0) invert(1);
+	}
+}
+
+/* MAIN cargar-documentacion - fin */
+
+/* ========================================= */
+
+/* MAIN seleccionar-documentacion - inicio */
+
+.main-seleccionar-documentacion {
+	&__datos-cliente {
+		div p {
+			font-family: 'Roboto', sans-serif;
+			@include configText($grisTexto, normal, 0.8125rem);
+			margin-top: 0.7rem;
+		}
+	}
+	.credito-plazo,
+	.monto-plan {
+	
+		position: relative;
+		top: -0.8rem;
+
+		p {
+			line-height: 0.3rem;
+			@include configText($grisTexto, bold, 0.8125rem);
+			font-family: 'Roboto', sans-serif;
+
+			.datos-cliente {
+				@include configText($grisTexto, normal, 0.8125rem);
+				font-family: 'Roboto', sans-serif;
+			}
+		}
+	}
+
+	&__botones {
+		text-align: center;
+		&--titulo {
+			h3 {
+				@include configText($verdeTexto2, bold, 1.25rem);
+			}
+		}
+
+		&--botones {
+			.btn-rollover,
+			.btn-rollover-limpiar {
+				@include configText($blanco, normal, 0.9rem);
+				font-family: 'Roboto', sans-serif;
+				background: #9f9f9f;
+				border-radius: 5px;
+				border: none;
+				text-decoration: none;
+				display: inline-block;
+				width: 9rem;
+				padding: 0.535rem 1rem;
+				transition: 300ms;
+				outline: none;
+				margin-top: .5rem;
+			}
+
+			.btn-rollover:hover,
+			.btn-rollover:visited {
+				background: #23a001;
+				border: none;
+			}
+
+			#boton-todos button {
+				background: #0162c6;
+			}
+
+			#boton-todos button:hover {
+				background: #0162c6;
+			}
+
+			.col-roll {
+				margin: 0 !important;
+			}
+		}
+	}
+
+	&__tabla {
+		table {
+			thead {
+				tr th {
+					font-family: 'Roboto', sans-serif !important;
+					@include configText($azulTexto, bold, 11px);
+				}
+			}
+
+			tbody {
+				tr td {
+					text-align: center !important;
+				}
+
+				.trow-selec td:nth-child(2) {
+					position: relative;
+					left: 0.5rem;
+				}
+
+				.trow-selec td:nth-child(3) {
+					position: relative;
+					right: 1.5rem;
+				}
+
+				.trow-selec td:nth-child(4) {
+					position: relative;
+					right: 0.8rem;
+				}
+
+				.eye-previsualizar img:hover {
+					filter: invert(49%) sepia(74%) saturate(2655%) hue-rotate(74deg)
+						brightness(92%) contrast(99%);
+				}
+
+				.garbage img:hover {
+					filter: invert(23%) sepia(98%) saturate(7458%) hue-rotate(15deg)
+						brightness(101%) contrast(127%);
+				}
+
+				.ojo {
+					width: 17px;
+				}
+			}
+		}
+	}
+
+	#t-selec-doc {
+		font-family: 'Roboto', sans-serif !important;
+	}
+}
+
+/* MAIN seleccionar-documentacion - fin */
 
 /* ========================================= */

@@ -6,9 +6,6 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -17,8 +14,7 @@ body {
 }
 
 /* Cabecera de Directo */
-.header__directo,
-.header-documentacion__directo {
+.header__directo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,52 +28,10 @@ body {
   border-bottom-right-radius: 20px;
 }
 
-.header__directo--logo,
-.header-documentacion__directo--logo {
+.header__directo--logo {
   margin-top: 1rem;
   max-width: 18.56rem;
   width: 100%;
-}
-
-.header-documentacion__directo {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 7.25rem;
-}
-
-.header-documentacion__directo--logo {
-  margin: 1.1rem auto;
-}
-
-.header-documentacion__directo--titulo div {
-  position: absolute;
-  top: 5rem;
-  left: 1rem;
-}
-
-.header-documentacion__directo--titulo div a {
-  position: absolute;
-  z-index: 999;
-}
-
-.header-documentacion__directo--titulo div a svg {
-  width: 20px;
-  height: 20px;
-}
-
-.header-documentacion__directo--titulo h3 {
-  position: relative;
-  bottom: .1rem;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.cargar-documentacion__directo {
-  background: #FFFFFF !important;
 }
 
 /* MAIN - validacion-identidad-comercio - inicio */
@@ -173,8 +127,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.botones input,
-.botones button {
+.botones input, .botones button {
   font-size: 5.5vw;
   max-width: 92.5%;
 }
@@ -651,7 +604,7 @@ body {
 .main-gestual__reglas--requisitos span svg {
   width: 2rem;
   height: 1.4rem;
-  margin-left: -0.6rem;
+  margin-left: -.6rem;
   margin-right: 0.4rem;
 }
 
@@ -895,14 +848,12 @@ body {
 /* MAIN finalizando-comercio - fin */
 /* ========================================= */
 /* MAIN validar-identidad - inicio */
-.main-validar-identidad__regresar svg,
-.main-cargar-documentacion__regresar svg {
+.main-validar-identidad__regresar svg {
   width: 22px;
   height: 21px;
 }
 
-.main-validar-identidad__buscador #buscador,
-.main-cargar-documentacion__buscador #buscador {
+.main-validar-identidad__buscador #buscador {
   font-family: 'Roboto', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -924,36 +875,31 @@ body {
   font-size: 0.8rem;
 }
 
-.main-validar-identidad__buscador #buscador::-webkit-input-placeholder,
-.main-cargar-documentacion__buscador #buscador::-webkit-input-placeholder {
+.main-validar-identidad__buscador #buscador::-webkit-input-placeholder {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.8rem;
 }
 
-.main-validar-identidad__buscador #buscador:-ms-input-placeholder,
-.main-cargar-documentacion__buscador #buscador:-ms-input-placeholder {
+.main-validar-identidad__buscador #buscador:-ms-input-placeholder {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.8rem;
 }
 
-.main-validar-identidad__buscador #buscador::-ms-input-placeholder,
-.main-cargar-documentacion__buscador #buscador::-ms-input-placeholder {
+.main-validar-identidad__buscador #buscador::-ms-input-placeholder {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.8rem;
 }
 
-.main-validar-identidad__buscador #buscador::placeholder,
-.main-cargar-documentacion__buscador #buscador::placeholder {
+.main-validar-identidad__buscador #buscador::placeholder {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.8rem;
 }
 
-.main-validar-identidad__buscador svg,
-.main-cargar-documentacion__buscador svg {
+.main-validar-identidad__buscador svg {
   position: absolute;
   top: 8.6rem;
   right: 1.8rem;
@@ -961,8 +907,7 @@ body {
   height: 16px;
 }
 
-.main-validar-identidad__titulo,
-.main-cargar-documentacion__titulo {
+.main-validar-identidad__titulo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -975,29 +920,25 @@ body {
           flex-direction: row;
 }
 
-.main-validar-identidad__titulo h2,
-.main-cargar-documentacion__titulo h2 {
+.main-validar-identidad__titulo h2 {
   margin-top: 0.5rem;
   color: #00458a;
   font-weight: normal;
   font-size: 1.375rem;
 }
 
-.main-validar-identidad__resultados--lista .persona,
-.main-cargar-documentacion__resultados--lista .persona {
+.main-validar-identidad__resultados--lista .persona {
   height: 3.6rem;
 }
 
-.main-validar-identidad__resultados--lista .persona .persona-nombre,
-.main-cargar-documentacion__resultados--lista .persona .persona-nombre {
+.main-validar-identidad__resultados--lista .persona .persona-nombre {
   font-family: 'Roboto', sans-serif;
   color: #828282;
   font-weight: normal;
   font-size: 1rem;
 }
 
-.main-validar-identidad__resultados--lista .persona .persona-dni,
-.main-cargar-documentacion__resultados--lista .persona .persona-dni {
+.main-validar-identidad__resultados--lista .persona .persona-dni {
   font-family: 'Roboto', sans-serif;
   position: relative;
   bottom: 0.4rem;
@@ -1006,8 +947,7 @@ body {
   font-size: 0.75rem;
 }
 
-.main-validar-identidad__resultados--lista .persona svg,
-.main-cargar-documentacion__resultados--lista .persona svg {
+.main-validar-identidad__resultados--lista .persona svg {
   position: relative;
   float: right;
   width: 24px;
@@ -1015,18 +955,15 @@ body {
   bottom: 1.96rem;
 }
 
-.main-validar-identidad__paginador,
-.main-cargar-documentacion__paginador {
+.main-validar-identidad__paginador {
   margin: 0 auto;
 }
 
-.main-validar-identidad__paginador--numeros,
-.main-cargar-documentacion__paginador--numeros {
+.main-validar-identidad__paginador--numeros {
   margin-top: 2.23rem;
 }
 
-.main-validar-identidad__paginador--numeros p,
-.main-cargar-documentacion__paginador--numeros p {
+.main-validar-identidad__paginador--numeros p {
   position: relative;
   left: 1.9rem;
   bottom: 1.4rem;
@@ -1036,215 +973,25 @@ body {
   font-size: 0.75rem;
 }
 
-.main-validar-identidad__paginador .flecha-paginador,
-.main-cargar-documentacion__paginador .flecha-paginador {
+.main-validar-identidad__paginador .flecha-paginador {
   width: 46px;
   height: 46px;
 }
 
-.main-validar-identidad__paginador .flecha-paginador.atras,
-.main-cargar-documentacion__paginador .flecha-paginador.atras {
+.main-validar-identidad__paginador .flecha-paginador.atras {
   margin-left: 6rem;
 }
 
-.main-validar-identidad__paginador .flecha-paginador.adelante,
-.main-cargar-documentacion__paginador .flecha-paginador.adelante {
+.main-validar-identidad__paginador .flecha-paginador.adelante {
   margin-left: -3rem;
 }
 
-.main-validar-identidad .tick-active,
-.main-cargar-documentacion .tick-active {
+.main-validar-identidad .tick-active {
   -webkit-filter: invert(47%) sepia(47%) saturate(2433%) hue-rotate(73deg) brightness(94%) contrast(103%);
           filter: invert(47%) sepia(47%) saturate(2433%) hue-rotate(73deg) brightness(94%) contrast(103%);
 }
 
 /* MAIN validar-identidad - fin */
-/* ========================================= */
-/* MAIN cargar-documentacion - inicio */
-#cargar-documentacion {
-  background: #00448a;
-}
-
-.main-cargar-documentacion__titulo h3 {
-  position: relative;
-  top: 0.9rem;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.main-cargar-documentacion__titulo--atras {
-  position: absolute;
-  top: 5.55rem;
-  left: 1rem;
-}
-
-.main-cargar-documentacion__subtitulo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.main-cargar-documentacion__subtitulo h2 {
-  margin-top: 0.5rem;
-  color: #FFFFFF;
-  font-weight: normal;
-  font-size: 1.375rem;
-}
-
-.main-cargar-documentacion__resultados--lista .persona {
-  background: #00448a;
-}
-
-.main-cargar-documentacion__resultados--lista .persona .persona-nombre,
-.main-cargar-documentacion__resultados--lista .persona .persona-dni {
-  color: #FFFFFF;
-  font-weight: 400;
-}
-
-.main-cargar-documentacion__paginador--numeros p {
-  color: #FFFFFF;
-}
-
-.main-cargar-documentacion .tick-active-doc {
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
-}
-
-/* MAIN cargar-documentacion - fin */
-/* ========================================= */
-/* MAIN seleccionar-documentacion - inicio */
-.main-seleccionar-documentacion__datos-cliente div p {
-  font-family: 'Roboto', sans-serif;
-  color: #828282;
-  font-weight: normal;
-  font-size: 0.8125rem;
-  margin-top: 0.7rem;
-}
-
-.main-seleccionar-documentacion .credito-plazo,
-.main-seleccionar-documentacion .monto-plan {
-  position: relative;
-  top: -0.8rem;
-}
-
-.main-seleccionar-documentacion .credito-plazo p,
-.main-seleccionar-documentacion .monto-plan p {
-  line-height: 0.3rem;
-  color: #828282;
-  font-weight: bold;
-  font-size: 0.8125rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-.main-seleccionar-documentacion .credito-plazo p .datos-cliente,
-.main-seleccionar-documentacion .monto-plan p .datos-cliente {
-  color: #828282;
-  font-weight: normal;
-  font-size: 0.8125rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-.main-seleccionar-documentacion__botones {
-  text-align: center;
-}
-
-.main-seleccionar-documentacion__botones--titulo h3 {
-  color: #219653;
-  font-weight: bold;
-  font-size: 1.25rem;
-}
-
-.main-seleccionar-documentacion__botones--botones .btn-rollover,
-.main-seleccionar-documentacion__botones--botones .btn-rollover-limpiar {
-  color: #FFFFFF;
-  font-weight: normal;
-  font-size: 0.9rem;
-  font-family: 'Roboto', sans-serif;
-  background: #9f9f9f;
-  border-radius: 5px;
-  border: none;
-  text-decoration: none;
-  display: inline-block;
-  width: 9rem;
-  padding: 0.535rem 1rem;
-  -webkit-transition: 300ms;
-  transition: 300ms;
-  outline: none;
-  margin-top: .5rem;
-}
-
-.main-seleccionar-documentacion__botones--botones .btn-rollover:hover,
-.main-seleccionar-documentacion__botones--botones .btn-rollover:visited {
-  background: #23a001;
-  border: none;
-}
-
-.main-seleccionar-documentacion__botones--botones #boton-todos button {
-  background: #0162c6;
-}
-
-.main-seleccionar-documentacion__botones--botones #boton-todos button:hover {
-  background: #0162c6;
-}
-
-.main-seleccionar-documentacion__botones--botones .col-roll {
-  margin: 0 !important;
-}
-
-.main-seleccionar-documentacion__tabla table thead tr th {
-  font-family: 'Roboto', sans-serif !important;
-  color: #00458a;
-  font-weight: bold;
-  font-size: 11px;
-}
-
-.main-seleccionar-documentacion__tabla table tbody tr td {
-  text-align: center !important;
-}
-
-.main-seleccionar-documentacion__tabla table tbody .trow-selec td:nth-child(2) {
-  position: relative;
-  left: 0.5rem;
-}
-
-.main-seleccionar-documentacion__tabla table tbody .trow-selec td:nth-child(3) {
-  position: relative;
-  right: 1.5rem;
-}
-
-.main-seleccionar-documentacion__tabla table tbody .trow-selec td:nth-child(4) {
-  position: relative;
-  right: 0.8rem;
-}
-
-.main-seleccionar-documentacion__tabla table tbody .eye-previsualizar img:hover {
-  -webkit-filter: invert(49%) sepia(74%) saturate(2655%) hue-rotate(74deg) brightness(92%) contrast(99%);
-          filter: invert(49%) sepia(74%) saturate(2655%) hue-rotate(74deg) brightness(92%) contrast(99%);
-}
-
-.main-seleccionar-documentacion__tabla table tbody .garbage img:hover {
-  -webkit-filter: invert(23%) sepia(98%) saturate(7458%) hue-rotate(15deg) brightness(101%) contrast(127%);
-          filter: invert(23%) sepia(98%) saturate(7458%) hue-rotate(15deg) brightness(101%) contrast(127%);
-}
-
-.main-seleccionar-documentacion__tabla table tbody .ojo {
-  width: 17px;
-}
-
-.main-seleccionar-documentacion #t-selec-doc {
-  font-family: 'Roboto', sans-serif !important;
-}
-
-/* MAIN seleccionar-documentacion - fin */
 /* ========================================= */
 @media only screen and (min-width: 435px) {
   .wrapper-desktop {
