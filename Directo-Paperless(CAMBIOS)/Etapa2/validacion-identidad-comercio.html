@@ -14,7 +14,7 @@
 		<!-- Estilos -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body id="ingreso-comercio">
+	<body>
 		<!-- iconos svg - inicio -->
 		<svg
 			aria-hidden="true"
@@ -60,81 +60,11 @@
 						fill="#E41F26"
 					/>
 				</symbol>
-				<!-- WRAPPER DESKTOP -->
-				<symbol
-					id="wrapper-desktop"
-					width="420"
-					height="438"
-					viewBox="0 0 420 438"
-					fill="none"
-				>
-					<mask id="path-1-inside-1" fill="white">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M5.27977 64.9999C5.27977 29.1014 34.3813 0 70.2798 0H354.28C390.178 0 419.28 29.1015 419.28 65V772.566C419.28 808.464 390.178 837.565 354.28 837.565H70.2798C34.3813 837.565 5.27977 808.464 5.27977 772.565V419.549H3C1.34315 419.549 0 418.206 0 416.549V287.549C0 285.892 1.34315 284.549 3 284.549H5.27977V268.105H3C1.34315 268.105 0 266.762 0 265.105V215.066C0 213.409 1.34315 212.066 3 212.066H5.27977V64.9999Z"
-						/>
-					</mask>
-					<path
-						d="M5.27977 419.549H7.27977V417.549H5.27977V419.549ZM5.27977 284.549V286.549H7.27977V284.549H5.27977ZM5.27977 268.105H7.27977V266.105H5.27977V268.105ZM5.27977 212.066V214.066H7.27977V212.066H5.27977ZM70.2798 -2C33.2767 -2 3.27977 27.9968 3.27977 64.9999H7.27977C7.27977 30.206 35.4858 2 70.2798 2V-2ZM354.28 -2H70.2798V2H354.28V-2ZM421.28 65C421.28 27.9969 391.283 -2 354.28 -2V2C389.074 2 417.28 30.2061 417.28 65H421.28ZM421.28 772.566V65H417.28V772.566H421.28ZM354.28 839.565C391.283 839.565 421.28 809.569 421.28 772.566H417.28C417.28 807.359 389.074 835.565 354.28 835.565V839.565ZM70.2798 839.565H354.28V835.565H70.2798V839.565ZM3.27977 772.565C3.27977 809.569 33.2767 839.565 70.2798 839.565V835.565C35.4858 835.565 7.27977 807.359 7.27977 772.565H3.27977ZM3.27977 419.549V772.565H7.27977V419.549H3.27977ZM3 421.549H5.27977V417.549H3V421.549ZM-2 416.549C-2 419.311 0.238579 421.549 3 421.549V417.549C2.44771 417.549 2 417.101 2 416.549H-2ZM-2 287.549V416.549H2V287.549H-2ZM3 282.549C0.238579 282.549 -2 284.788 -2 287.549H2C2 286.997 2.44771 286.549 3 286.549V282.549ZM5.27977 282.549H3V286.549H5.27977V282.549ZM3.27977 268.105V284.549H7.27977V268.105H3.27977ZM5.27977 266.105H3V270.105H5.27977V266.105ZM3 266.105C2.44771 266.105 2 265.657 2 265.105H-2C-2 267.866 0.238579 270.105 3 270.105V266.105ZM2 265.105V215.066H-2V265.105H2ZM2 215.066C2 214.514 2.44771 214.066 3 214.066V210.066C0.238579 210.066 -2 212.305 -2 215.066H2ZM3 214.066H5.27977V210.066H3V214.066ZM3.27977 64.9999V212.066H7.27977V64.9999H3.27977Z"
-						fill="#9B9B9B"
-						mask="url(#path-1-inside-1)"
-					/>
-					<mask id="path-3-inside-2" fill="white">
-						<rect
-							x="30.248"
-							y="97.6938"
-							width="364.025"
-							height="643.951"
-							rx="1"
-						/>
-					</mask>
-					<rect
-						x="30.248"
-						y="97.6938"
-						width="364.025"
-						height="643.951"
-						rx="1"
-						stroke="#9B9B9B"
-						stroke-width="4"
-						mask="url(#path-3-inside-2)"
-					/>
-					<rect
-						x="15.6875"
-						y="14"
-						width="393.715"
-						height="809.026"
-						rx="64"
-						stroke="#9B9B9B"
-						stroke-width="2"
-					/>
-					<rect
-						x="153.828"
-						y="762.211"
-						width="118.151"
-						height="38.0503"
-						rx="19"
-						stroke="#9B9B9B"
-						stroke-width="2"
-					/>
-					<path
-						d="M80.4043 12.6808V1.80001"
-						stroke="#9B9B9B"
-						stroke-width="3"
-						stroke-linecap="square"
-					/>
-					<path
-						d="M345.205 12.6808V1.80001"
-						stroke="#9B9B9B"
-						stroke-width="3"
-						stroke-linecap="square"
-					/>
-				</symbol>
 			</defs>
 		</svg>
 		<!-- iconos svg - fin -->
 
-		<div>
+		<div class="wrapper-desktop">
 			<!-- header directo - inicio -->
 			<header class="header">
 				<div class="header__directo">
@@ -146,31 +76,41 @@
 			<!-- header directo - fin -->
 
 			<main>
-				<div class="ingreso-saludo">
-					<h3>Hola!</h3>
+				<!-- Saludo bienvenida -->
+				<div class="bienvenida">
+					<h3 class="bienvenida__titulo">Cliente</h3>
+					<h4 class="bienvenida__nombre">Fragoso De Aruda, Adalberto Carlos</h4>
+					<h4 class="bienvenida__documento">DNI <span>24.235.647</span></h4>
 				</div>
 
-				<div class="ingreso-botones">
-					<button class="botones__verde txt-normal">Calificar</button>
+				<!-- Textos de la validación -->
+				<div class="validacion">
+					<h3 class="validacion__titulo">Vamos a validar tu identidad</h3>
+					<h4 class="validacion__necesitamos">Necesitamos:</h4>
+					<div class="validacion__requisitos text-center">
+						<h4 class="">Foto del DNI frente y dorso</h4>
+						<h4 class="">Foto de la cara del cliente</h4>
+					</div>
+				</div>
+
+				<!-- Contenedor de botones -->
+				<div class="botones validacion-com">
 					<button
-						class="botones__verde txt-normal"
+						class="botones__verde"
 						type="button"
-						onclick="location.href='http://ringofox.agency/Directo-Paperless/Etapa5/cargar-documentacion.html'"
+						onclick="location.href='http://ringofox.agency/Directo-Paperless/Etapa3/sacar-foto-frente.html'"
 					>
-						Cargar documentación
+						Continuar
 					</button>
-					<button
-						class="botones__verde txt-normal"
-						type="button"
-						onclick="location.href='http://ringofox.agency/Directo-Paperless/Etapa1/validar-identidad.html'"
-					>
-						Validar identidad
+					<button class="botones__azul" onclick="javascript:history.back()">
+						Volver
 					</button>
 				</div>
 			</main>
 		</div>
 
 		<!-- SCRIPTS -->
+
 		<!-- Bootstrap 5 -->
 		<script src="../assets/js/bootstrap.bundle.min.js"></script>
 	</body>

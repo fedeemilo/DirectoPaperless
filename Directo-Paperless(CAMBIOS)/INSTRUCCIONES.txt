@@ -1,0 +1,9 @@
+﻿Directo Paperless – CAMBIOS en responsive design
+
+Para aplicar los cambios realizados simplemente pisar los html de cada etapa 
+correspondiente, ya que hay pequeñas modificaciones en cada uno (agregado y borrado de clases, restructuración del código, etc).
+
+Lo mismo aplica para el archivo style.css dentro de /css y las imagenes dentro
+de /images. PISAR LOS ARCHIVOS DONDE CORRESPONDA.
+
+

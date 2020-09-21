@@ -1,0 +1,209 @@
+@media only screen and (min-width: 520px) {
+  // Sacar Foto
+  .main-dorso,
+  .main-frente,
+  .main-gestual,
+  .main-selfie {
+    &__titulo {
+      p {
+        font-size: 3.5vw;
+      }
+    }
+
+    &__reglas {
+      &--requisitos,
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    &__reglas.dorso,
+    &__reglas.frente,
+    &__reglas.gestual {
+      width: 20rem;
+    }
+
+    &__reglas.selfie {
+      width: 17.1rem;
+    }
+
+    &__botones {
+      button {
+        font-size: 2.6vw;
+      }
+    }
+
+    &__subtitulo {
+      font-size: 3.9vw;
+    }
+  }
+
+  // Verificar Foto
+  .main-verificar-dorso,
+  .main-verificar-frente,
+  .main-verificar-gestual,
+  .main-verificar-selfie {
+    &__botones {
+      button,
+      input {
+        font-size: 2.9vw !important;
+        width: 10rem;
+      }
+    }
+  }
+
+  // Validar Identidad
+  .main-validar-identidad {
+    &__regresar {
+      svg {
+        margin-left: 2rem !important;
+      }
+    }
+
+    &__buscador {
+      svg {
+        right: 2.5rem;
+      }
+    }
+
+    &__titulo {
+      height: 3rem;
+      margin: 0 auto;
+
+      h2 {
+        svg {
+        }
+      }
+    }
+
+    &__paginador {
+      &--atras {
+        margin: 0;
+      }
+
+      &--numeros {
+        p {
+          font-size: 2.4vw;
+        }
+      }
+    }
+  }
+
+  .main-validar-identidad {
+
+    &__regresar {
+      a {
+        position: relative;
+        left: 4rem;
+      }
+    }
+
+
+    &__buscador {
+      svg {
+        top: 1.7rem !important;
+      }
+    }
+  }
+
+  // Cargar documentación
+  .main-cargar-documentacion, .main-validar-identidad {
+    &__titulo {
+      a {
+        position: relative;
+        top:1rem;
+        right: 3.6rem;
+      }
+
+    }
+    &__buscador {
+      #buscador {
+        max-width: 25rem;
+        height: 2rem;
+      }
+
+      svg {
+        position: block !important;
+      }
+
+      label {
+        position: relative;
+      }
+      
+      label > .icon-special {
+        position: absolute;
+        top: 50%;
+        left: 78%;
+        transform: translateY(-50%);
+        color: silver;
+      }
+      
+      label > input {
+        padding-left: calc(1em + 10px + 8px); /* icon width + icon padding-left + desired separation*/
+        height: 2em;
+      }
+
+      .icon-special {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+      }
+    }
+
+    &__paginador {
+      &--numeros {
+        p {
+          font-size: 2.5vw !important;
+        }
+      }
+    }
+  }
+
+  // Finalizando cliente
+  .footer-crear-cuenta {
+
+    &__titulo {
+      p {
+        font-size: 4vw;
+      }
+    }
+
+    &__botones {
+      margin-top: 2.4rem;
+      button {
+        width: 29.5rem;
+      }
+    }
+  }
+
+  .mensaje-cliente {
+    h3 {
+      font-size: 5vw;
+      line-height: 2rem;
+    }
+  }
+
+  .mensaje-cliente-felicitaciones {
+    h2 {
+      font-size: 9vw;
+    }
+
+    h3 {
+      font-size: 6vw;
+    }
+  }
+
+  .botones.validacion-com {
+    button {
+      font-size: 3.8vw;
+    }
+  }
+
+  // Foto poco clara
+  #boton-foto-poco-clara {
+    font-size: 3.4vw;
+  }
+}
